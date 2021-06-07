@@ -1,8 +1,8 @@
 # GDW2021
 ## Table Of Contents
 1. [Overview](#Overview)
-2. [Product_Spec](#Product-Spec)
-3. [Wireframes/Visuals of Game](#Wireframes)
+2. [Game_Specs](#Game-Spec)
+3. [Wireframes](#Wireframes)
 4. [Gifs](#Gifs)
 5. 
 ##Overview
@@ -17,11 +17,11 @@ nothing here yet
 ### 1. Game features (Required and Optional) 
 
 **Required Must-have Stories** 
-nothing here yet
+  nothing here yet
 
 **Optional Stretch Goals**
 
-  *nothing here yet
+  nothing here yet
 
 ## Gifs
 
