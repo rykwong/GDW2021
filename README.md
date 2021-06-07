@@ -14,10 +14,8 @@ Nothing here yet
 ### 1. Game features (Required and Optional) 
 
 **Required Must-have Stories** 
-* nothing yet
-**Optional Stretch Goals**
-* nothing yet
 
+**Optional Stretch Goals**
 ## Gifs
 * nothing yet
 
