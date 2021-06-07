@@ -21,10 +21,10 @@ nothing here yet
 
 **Optional Stretch Goals**
 
-nothing here yet
+  *nothing here yet
 
 ## Gifs
 
-nothing yet
+  *nothing here yet
 
 
