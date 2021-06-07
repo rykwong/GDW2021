@@ -10,5 +10,15 @@
 ### Demo
 Nothing here yet
 ## Product Spec
-
+ 
 ### 1. Game features (Required and Optional) 
+
+**Required Must-have Stories** 
+* nothing yet
+**Optional Stretch Goals**
+*[] Switch between 2D and 3D perspective
+
+## Gifs
+* nothing yet
+
+
