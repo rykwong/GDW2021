@@ -13,6 +13,6 @@
 
 ### 1. Game features (Required and Optional) 
 **Required Must-have features**
-
-**Optional Stretch Goals** 
-*[ ] Switch between 2D and 3D gameplay perspective
+ nothing here yet
+ **Optional Stretch Goals**
+ nothing here yet
