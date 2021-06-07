@@ -8,11 +8,7 @@
 ###Description
 **GDW2021** nothing here yet. don't have a solid game idea. 
 ### Demo
-
+Nothing here yet
 ## Product Spec
 
 ### 1. Game features (Required and Optional) 
-**Required Must-have features**
- nothing here yet
- **Optional Stretch Goals**
- nothing here yet
