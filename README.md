@@ -20,7 +20,7 @@ nothing here yet. don't have a solid game idea.
 
 nothing here yet
 
-## Product Spec
+## Game Specs
  
 ### 1. Game features (Required and Optional) 
 
