@@ -7,7 +7,7 @@
 5. 
 ## Overview
 ### Description
-**SquadHouse** is an audio-chat application designed to allow and facilitate conversations between individuals on the platform concerning any perceivable topic they wish to entertain. 
+**Insert Game Name** is an audio-chat application designed to allow and facilitate conversations between individuals on the platform concerning any perceivable topic they wish to entertain. 
 
 **GDW2021** nothing here yet. don't have a solid game idea. 
 ### Demo
