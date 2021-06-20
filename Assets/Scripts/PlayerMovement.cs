@@ -5,21 +5,41 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 12f;
+    //speed
+    public float speed = 3f;
+    [SerializeField] float walkSpeed = 6.0f;
+    [SerializeField] float runSpeed;
+    [SerializeField] float runBuildUpSpeed;
+    private float movementSpeed;
+
+
+    //jump
     public float jumpHeight = 3f;
+
+    //physics
     private Vector3 velocity;
-    private float gravity = -20f;
+    private float gravity = -9.18f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    float pushPower = 2.0f;
 
+    //boolean
     private bool isGrounded;
     private Transform toMove;
 
+    //velocity
+    Vector3 currentDirVelocity = Vector3.zero;
+    Vector3 currentDir = Vector3.zero;
+
+
+    //smooth dampener
+    [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     // Update is called once per frame
     void Update()
     {
         Move();
+        Sprint();
     }
 
     private void Move()
@@ -31,7 +51,17 @@ public class PlayerMovement : MonoBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        Vector3 targetDirection = new Vector3(x, 0, z);
+        currentDir = Vector3.SmoothDamp(currentDir, targetDirection, ref currentDirVelocity, moveSmoothTime);
+
+
+
         Vector3 move = transform.right * x + transform.forward * z;
+
+
+
+
         controller.Move(move * speed * Time.deltaTime);
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -41,8 +71,20 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
-    
-    float pushPower = 2.0f;
+
+    private void Sprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = Mathf.Lerp(speed, runSpeed, Time.deltaTime * runBuildUpSpeed);
+        }
+        else
+        {
+            speed = Mathf.Lerp(speed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
+        }
+    }
+
+
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
