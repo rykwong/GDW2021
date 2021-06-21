@@ -8,6 +8,7 @@ public class PickUp : MonoBehaviour
 
     Rigidbody pickableRb;
     public GameObject hands;
+    GameObject draggedObject = null;
     GameObject pickable;
     bool holding;
     bool dragging;
@@ -45,12 +46,12 @@ public class PickUp : MonoBehaviour
     {
 
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
 
 
-            if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 20.0f))
+            if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 10.0f))
             {
                 if (hit.transform.tag == "Pickable")
                 {
@@ -59,25 +60,48 @@ public class PickUp : MonoBehaviour
                     //pickable = hit.transform.gameObject;
                     //pickableRb = pickable.GetComponent<Rigidbody>();
                     //holding = true;
-                    hit.transform.position = hands.transform.position;
+                    draggedObject = new GameObject();
 
-                    hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+                    draggedObject = hit.transform.gameObject;
 
-                    dragging = true;
+                    if (draggedObject == null)
+                    {
+                        Debug.LogError("Null Pointer Exception");
+                    }
+
+
+
 
                 }
 
-                else
-                {
-                    
-                }
 
             }
 
 
+
         }
+
         if (Input.GetMouseButton(1))
         {
+
+            if (draggedObject != null)
+            {
+                pickUp();
+                draggedObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
+
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (draggedObject != null)
+            {
+                draggedObject.GetComponent<Rigidbody>().isKinematic = false;
+                draggedObject = null;
+
+            }
+            //draggedObject.GetComponent<Rigidbody>().isKinematic = false;
+            //draggedObject = null;
+            //Destroy(draggedObject);
 
         }
 
@@ -100,6 +124,15 @@ public class PickUp : MonoBehaviour
         //    pickable = null;
         //    pickableRb = null;
         //}
+    }
+    private void pickUp()
+    {
+
+        draggedObject.transform.position = hands.transform.position;
+        Vector3 point = hands.transform.position;
+        point.x = draggedObject.transform.position.x;
+        point.y = draggedObject.transform.position.y;
+        point.z = draggedObject.transform.position.z;
     }
     //private void pickUp()
     //{
