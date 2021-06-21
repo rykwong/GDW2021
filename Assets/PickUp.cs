@@ -10,6 +10,7 @@ public class PickUp : MonoBehaviour
     public GameObject hands;
     GameObject pickable;
     bool holding;
+    bool dragging;
 
 
 
@@ -17,13 +18,13 @@ public class PickUp : MonoBehaviour
     {
         holding = false;
         pickable = null;
-
+        dragging = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(this.transform.position, this.transform.forward * 10, Color.magenta);
+        Debug.DrawRay(this.transform.position, this.transform.forward * 20, Color.magenta);
         RayCast();
         //if (Input.GetMouseButton(0))
         //{
@@ -42,41 +43,64 @@ public class PickUp : MonoBehaviour
     //}
     private void RayCast()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, this.transform.forward * 10, out hit, Mathf.Infinity))
+
+
+        if (Input.GetMouseButton(1))
         {
-            if (hit.transform.tag == "Pickable" && !holding)
+            RaycastHit hit;
+
+
+            if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 20.0f))
             {
-                hit.collider.GetComponent<Renderer>().material.color = Color.green;
-                if (Input.GetMouseButton(0))
+                if (hit.transform.tag == "Pickable")
                 {
-                    Debug.Log("Holding");
+                    hit.collider.GetComponent<Renderer>().material.color = Color.green;
+
+                    //pickable = hit.transform.gameObject;
+                    //pickableRb = pickable.GetComponent<Rigidbody>();
+                    //holding = true;
                     hit.transform.position = hands.transform.position;
 
+                    hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+
+                    dragging = true;
+
                 }
-                //pickable = hit.transform.gameObject;
-                //pickableRb = pickable.GetComponent<Rigidbody>();
+
+                else
+                {
+                    
+                }
+
             }
-            else
-            {
-                //pickable = null;
-                //pickableRb = null;
-            }
+
+
+        }
+        if (Input.GetMouseButton(1))
+        {
 
         }
 
 
+
+
+
+
+
+
+
+
     }
-    //private void DropObject()
-    //{
-    //    if (pickable != null)
-    //    {
-    //        pickableRb.AddForce(0, 0, 0);
-    //        pickableRb.useGravity = true;
-    //        pickable = null;
-    //        pickableRb = null;
-    //    }
-    //}
+    private void DropObject()
+    {
+        //if (pickable != null)
+        //{
+        //    pickableRb.AddForce(0, 0, 0);
+        //    pickableRb.useGravity = true;
+        //    pickable = null;
+        //    pickableRb = null;
+        //}
+    }
     //private void pickUp()
     //{
     //    if (pickable != null)
