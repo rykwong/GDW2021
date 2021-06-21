@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 12f;
+    public float walkSpeed;
+    public float sprintSpeed;
+    private float speed = 12f;
     public float jumpHeight = 3f;
     private Vector3 velocity;
     private float gravity = -20f;
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
     }
 
     private void Move()
