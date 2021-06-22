@@ -25,7 +25,7 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(this.transform.position, this.transform.forward * 20, Color.magenta);
+
         RayCast();
         //if (Input.GetMouseButton(0))
         //{
@@ -53,7 +53,8 @@ public class PickUp : MonoBehaviour
 
             if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 10.0f))
             {
-                if (hit.transform.tag == "Pickable")
+                Debug.DrawRay(this.transform.position, this.transform.forward * 20, Color.magenta);
+                if (hit.collider.tag == "Pickable")
                 {
                     hit.collider.GetComponent<Renderer>().material.color = Color.green;
 
