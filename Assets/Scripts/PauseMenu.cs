@@ -5,8 +5,10 @@ using UnityEngine;
 /*If we have audio, we will also have to turn that off in this code. 
  * 
  * Currently, I do not have audio so sound will not be turned off.
+ * 
+ * Attach this to the PauseScreen canvas. 
  */
-public class PauseControl : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool gameIsPaused;
