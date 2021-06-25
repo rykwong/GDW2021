@@ -12,12 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    public GameObject[] objects;
-    public int maxMaterials = 100;
-    public float spawnDistance = 5f;
-    public int spawnCost = 10;
-
-    private int materials;
+   
     private bool isGrounded;
     private Transform toMove;
 
@@ -25,22 +20,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
-        SpawnObj();
-    }
-
-    private void SpawnObj()
-    {
-        if (Input.GetButtonDown("1Key") && materials + spawnCost < maxMaterials)
-        {
-            Vector3 spawnPos = controller.transform.position + controller.transform.forward * spawnDistance;
-            Instantiate(objects[0], spawnPos, controller.transform.rotation);
-            materials += spawnCost;
-        }else if (Input.GetButtonDown("2Key") && materials + spawnCost < maxMaterials)
-        {
-            Vector3 spawnPos = controller.transform.position + controller.transform.forward * spawnDistance;
-            Instantiate(objects[1], spawnPos, controller.transform.rotation);
-            materials += spawnCost;
-        }
     }
 
     private void Move()
