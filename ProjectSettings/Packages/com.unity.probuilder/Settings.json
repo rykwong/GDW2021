@@ -140,17 +140,25 @@
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "UVEditor.showPreviewMaterial",
                 "value": "{\"m_Value\":true}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ShapeComponent.ResetSettings",
+=======
+                "key": "experimental.enabled",
+>>>>>>> 6c37d2a27867bbdb5b217ac89fdf157c2ac4f7f3
                 "value": "{\"m_Value\":false}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+<<<<<<< HEAD
                 "key": "experimental.enabled",
+=======
+                "key": "ShapeComponent.ResetSettings",
+>>>>>>> 6c37d2a27867bbdb5b217ac89fdf157c2ac4f7f3
                 "value": "{\"m_Value\":false}"
             },
             {
