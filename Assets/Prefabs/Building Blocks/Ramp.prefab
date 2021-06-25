@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MeshFormatVersion: 1
+  m_MeshFormatVersion: 2
   m_Faces:
   - m_Indexes: 000000000200000001000000
     m_SmoothingGroup: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: 0, y: 0.00000023841858}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
@@ -176,10 +176,10 @@ MonoBehaviour:
   - {x: 4, y: -0.036609538}
   - {x: 0, y: -7.210886}
   - {x: 4, y: -7.210886}
-  - {x: 0, y: -5.9996285}
-  - {x: -4, y: -5.9996285}
-  - {x: 0, y: 0.0007431378}
-  - {x: -4, y: 0.0007431378}
+  - {x: 0, y: -5.999629}
+  - {x: -4, y: -5.999629}
+  - {x: 0, y: 0.00074289937}
+  - {x: -4, y: 0.00074289937}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -226,7 +226,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -276,7 +275,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!54 &6297544656604841198
