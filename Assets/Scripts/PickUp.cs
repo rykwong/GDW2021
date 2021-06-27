@@ -6,142 +6,84 @@ public class PickUp : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Rigidbody pickableRb;
-    public GameObject hands;
-    GameObject draggedObject = null;
-    GameObject pickable;
-    bool holding;
-    bool dragging;
-
-
+    Transform currentTransform;
+    float distanceBetween;
+    RaycastHit hit;
+    public LayerMask RayMask;
+    
 
     void Start()
     {
-        holding = false;
-        pickable = null;
-        dragging = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(transform.position, transform.forward * 40, Color.magenta);
+        PickUpObj();
 
-        RayCast();
-        //if (Input.GetMouseButton(0))
-        //{
-        //    pickUp();
-        //    holding = true;
-        //}
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    DropObject();
-        //    holding = false;
-        //}
     }
-    //private void pickUp()
-    //{
 
-    //}
-    private void RayCast()
+    void PickUpObj()
     {
-
-
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit hit;
-
-
-            if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 10.0f))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 40, RayMask))
             {
-                Debug.DrawRay(this.transform.position, this.transform.forward * 20, Color.magenta);
-                if (hit.collider.tag == "Pickable")
+                if (hit.transform.tag == "Pickable")
                 {
-                    hit.collider.GetComponent<Renderer>().material.color = Color.green;
-
-                    //pickable = hit.transform.gameObject;
-                    //pickableRb = pickable.GetComponent<Rigidbody>();
-                    //holding = true;
-                    draggedObject = new GameObject();
-
-                    draggedObject = hit.transform.gameObject;
-
-                    if (draggedObject == null)
-                    {
-                        Debug.LogError("Null Pointer Exception");
-                    }
-
-
-
-
+                    Debug.Log(hit.transform.gameObject);
+                    SetNewTransform(hit.transform);
+                    hit.transform.gameObject.GetComponent<Transform>().parent = this.transform.parent;
                 }
-
-
             }
-
-
-
         }
-
-        if (Input.GetMouseButton(1))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-
-            if (draggedObject != null)
-            {
-                pickUp();
-                draggedObject.GetComponent<Rigidbody>().isKinematic = true;
-            }
+            RemoveTransform();
+            hit.transform.gameObject.GetComponent<Transform>().parent = null;
 
         }
-        if (Input.GetMouseButtonUp(1))
+
+        //if there is a current transform, we want to move the transform around.
+        if (currentTransform)
         {
-            if (draggedObject != null)
-            {
-                draggedObject.GetComponent<Rigidbody>().isKinematic = false;
-                draggedObject = null;
-
-            }
-            //draggedObject.GetComponent<Rigidbody>().isKinematic = false;
-            //draggedObject = null;
-            //Destroy(draggedObject);
-
+            MoveTransformAround();
         }
-
-
-
-
-
-
-
-
-
-
     }
-    private void DropObject()
+    //set the picked up object's transform = to the currentTransform.
+    //find distance between camera and
+    //set the 
+    void SetNewTransform(Transform newTransform)
     {
-        //if (pickable != null)
-        //{
-        //    pickableRb.AddForce(0, 0, 0);
-        //    pickableRb.useGravity = true;
-        //    pickable = null;
-        //    pickableRb = null;
-        //}
-    }
-    private void pickUp()
-    {
+        //if the current transform != null
+        if (currentTransform)
+        {
+            return;
+        }
+        currentTransform = newTransform;
+        distanceBetween = Vector3.Distance(transform.position, newTransform.position);
 
-        draggedObject.transform.position = hands.transform.position;
-        Vector3 point = hands.transform.position;
-        point.x = draggedObject.transform.position.x;
-        point.y = draggedObject.transform.position.y;
-        point.z = draggedObject.transform.position.z;
+        currentTransform.GetComponent<Rigidbody>().isKinematic = true;
     }
-    //private void pickUp()
-    //{
-    //    if (pickable != null)
-    //    {
-    //        pickable.transform.position = hands.transform.position;
-    //        pickableRb.useGravity = false;
-    //    }
-    //}
+    //move around while holding the object
+    private void MoveTransformAround()
+    {
+        currentTransform.position = transform.position + transform.forward * distanceBetween;
+    }
+    //drop object
+    public void RemoveTransform()
+    {
+        if (!currentTransform)
+        {
+            return;
+        }
+        currentTransform.GetComponent<Rigidbody>().isKinematic = false;
+        currentTransform = null;
+    }
+
+
+
 
 }
