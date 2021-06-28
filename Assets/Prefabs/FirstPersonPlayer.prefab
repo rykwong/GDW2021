@@ -287,7 +287,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSmoothTime: 0.3
-=======
   objects:
   - {fileID: 9136984610529099750, guid: d152e03664778452583188f0d661373d, type: 3}
   - {fileID: 6661364063473677957, guid: 153395e962b0645e69267fb9e5629fd0, type: 3}
