@@ -803,6 +803,9 @@ MonoBehaviour:
   controller: {fileID: 1391258711}
   objects:
   - {fileID: 1232070475442072704, guid: 7e25d8da97bad99438bac029860c047c, type: 3}
+  - {fileID: 5961303178357416067, guid: 1fccfb262a2717c4e8cabbf38c8dffc7, type: 3}
+  - {fileID: 4780293530236820106, guid: 8bc14c0f0c55440998180ef41ac51c3f, type: 3}
+  - {fileID: 6661364063473677957, guid: 153395e962b0645e69267fb9e5629fd0, type: 3}
   maxMana: 100
   spawnDistance: 5
   spawnCost: 10
@@ -979,7 +982,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18078
+  m_Name: pb_Mesh19932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1151,6 +1154,10 @@ PrefabInstance:
     - target: {fileID: 8032289223389277761, guid: 6f0a41d82f8514d7f93b2cd012f6c9c7, type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032289223389277766, guid: 6f0a41d82f8514d7f93b2cd012f6c9c7, type: 3}
+      propertyPath: jumpHeight
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9082493348602550444, guid: 6f0a41d82f8514d7f93b2cd012f6c9c7, type: 3}
       propertyPath: m_RootOrder
