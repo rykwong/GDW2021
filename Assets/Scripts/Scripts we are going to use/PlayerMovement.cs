@@ -24,9 +24,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+
     float pushPower = 2.0f;
 
     //boolean
+
+
+
+    //boolean
+
     private bool isGrounded;
     private Transform toMove;
 
