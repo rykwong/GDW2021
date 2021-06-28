@@ -286,7 +286,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-<<<<<<< HEAD
   moveSmoothTime: 0.3
 =======
   objects:
@@ -294,4 +293,3 @@ MonoBehaviour:
   - {fileID: 6661364063473677957, guid: 153395e962b0645e69267fb9e5629fd0, type: 3}
   maxEnergy: 0
   spawnDistance: 10
->>>>>>> 6c37d2a27867bbdb5b217ac89fdf157c2ac4f7f3
