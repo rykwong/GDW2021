@@ -10,39 +10,63 @@ public class PickUp : MonoBehaviour
     float distanceBetween;
     RaycastHit hit;
     public LayerMask RayMask;
-    
+    public Transform handPosition;
+    bool grabbed;
+
 
     void Start()
     {
-
+        grabbed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * 40, Color.magenta);
+
         PickUpObj();
 
     }
 
     void PickUpObj()
     {
+
+        //press E -> 
+        //ray cast on to object -> if hit.transform.tag == "Pickable"
+        // hit.parent = camera.parent
+        Debug.DrawRay(transform.position, transform.forward * 20, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 40, RayMask))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 20, RayMask))
             {
                 if (hit.transform.tag == "Pickable")
                 {
                     Debug.Log(hit.transform.gameObject);
                     SetNewTransform(hit.transform);
-                    hit.transform.gameObject.GetComponent<Transform>().parent = this.transform.parent;
+                    hit.transform.parent = handPosition.parent;
+                    grabbed = true;
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             RemoveTransform();
-            hit.transform.gameObject.GetComponent<Transform>().parent = null;
+            if (grabbed)
+            {
+                hit.transform.parent = null;
+            }
+            //if (hit.transform.gameObject.GetComponent<Transform>().parent != null)
+            //{
+
+            //}
+            //if (hit.transform.gameObject.GetComponent<Transform>().parent == null)
+            //{
+            //    return;
+            //}
+            //else
+            //{
+            //    hit.transform.gameObject.GetComponent<Transform>().parent = null;
+            //}
+
 
         }
 

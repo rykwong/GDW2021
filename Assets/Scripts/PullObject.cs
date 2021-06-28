@@ -2,59 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * 
+ *This script needs more work. 
+ */
 public class PullObject : MonoBehaviour
 {
-    public Transform hitPoint;
-    public float distance = 10f;
-    public GameObject selectedObject;
-
-
-
-    private bool isGrounded;
-    private Vector3 velocity;
+    Transform currentTransform;
+    float distanceBetween;
     RaycastHit hit;
-    Vector3 offset;
+    public LayerMask RayMask;
+    public Transform handPosition;
+    bool pulling;
 
-    void selectObject()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-            selectedObject = null;
-
-        }
-        if (Input.GetMouseButton(0))
-        {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, distance))
-            {
-                Debug.DrawRay(this.transform.position, this.transform.forward * hit.distance, Color.green);
-                if (hit.collider != null)
-                {
-                    if (hit.collider.GetComponent<Rigidbody>() && hit.collider.tag == "Pullable")
-                    {
-
-                        Debug.Log("This object has a rigidbody.");
-                        if (selectedObject == null)
-                        {
-
-                            hitPoint.transform.position = hit.point;
-                            selectedObject = hit.collider.gameObject;
-                            offset = selectedObject.transform.position - hit.point;
-                            if (selectedObject.layer == 6)
-                            {
-
-                            }
-
-                        }
-                    }
-                }
-            }
-            if (selectedObject != null)
-            {
-                selectedObject.transform.position = hitPoint.transform.position + offset;
-
-            }
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +24,57 @@ public class PullObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        selectObject();
+        PullObj();
     }
+    void PullObj()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 20, RayMask))
+            {
+                if (hit.transform.tag == "Pullable")
+                {
+                    Debug.Log(hit.transform.gameObject);
+                    //SetNewTransform(hit.transform);
+                    hit.transform.parent = handPosition.parent;
+                    pulling = true;
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            //RemoveTransform();
+            if (pulling)
+            {
+                hit.transform.parent = null;
+            }
+
+
+        }
+
+
+
+    }
+
+    void SetNewTransform(Transform newTransform)
+    {
+        if (currentTransform)
+        {
+            return;
+        }
+        currentTransform = newTransform;
+        distanceBetween = Vector3.Distance(transform.position, newTransform.position);
+        //currentTransform.GetComponent<Rigidbody>().isKinematic = true;
+    }
+    public void RemoveTransform()
+    {
+        if (!currentTransform)
+        {
+            return;
+        }
+        //currentTransform.GetComponent<Rigidbody>().isKinematic = false;
+        currentTransform = null;
+    }
+
 }
+
