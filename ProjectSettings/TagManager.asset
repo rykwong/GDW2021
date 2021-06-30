@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Fire
   - Pickable
+  - Pushable
+  - Item
+  - key
+  - Pullable
   layers:
   - Default
   - TransparentFX
