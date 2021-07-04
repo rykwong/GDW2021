@@ -6,11 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     //speed
-    public float speed = 3f;
-    [SerializeField] float walkSpeed = 6.0f;
+    //public float speed = 3f;
+    [SerializeField] float walkSpeed = 1.5f;
     [SerializeField] float runSpeed;
     [SerializeField] float runBuildUpSpeed;
-    private float movementSpeed;
+    private float movementSpeed = 0.4f;
+
 
 
     //jump
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     //physics
     private Vector3 velocity;
+    Vector3 move;
     private float gravity = -9.18f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             Move();
             Sprint();
         }
-
+        Debug.Log("Movement Speed:" + movementSpeed);
     }
 
     private void Move()
@@ -67,12 +69,13 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        move = transform.right * x + transform.forward * z;
 
 
 
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * walkSpeed * Time.deltaTime);
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -86,11 +89,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = Mathf.Lerp(speed, runSpeed, Time.deltaTime * runBuildUpSpeed);
+            movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
+            controller.Move(move * movementSpeed * Time.deltaTime);
         }
         else
         {
-            speed = Mathf.Lerp(speed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
+            movementSpeed = Mathf.Lerp(movementSpeed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
+            controller.Move(move * movementSpeed * Time.deltaTime);
         }
     }
 
