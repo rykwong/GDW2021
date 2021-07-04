@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed;
     [SerializeField] float runBuildUpSpeed;
     private float movementSpeed = 0.4f;
-
+    private bool isPlatformed;
 
 
     //jump
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    float pushPower = 2.0f;
+    public float pushPower = 2.0f;
 
     //boolean
 
@@ -44,14 +44,14 @@ public class PlayerMovement : MonoBehaviour
     //smooth dampener
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!PauseMenu.gameIsPaused)
         {
             Move();
             Sprint();
         }
-        Debug.Log("Movement Speed:" + movementSpeed);
+        // Debug.Log("Movement Speed:" + movementSpeed);
     }
 
     private void Move()
@@ -127,6 +127,25 @@ public class PlayerMovement : MonoBehaviour
 
             // Apply the push
             body.velocity = pushDir * pushPower;
+        }
+
+        if (hit.transform.CompareTag("Platform"))
+        {
+            if (!isPlatformed)
+            {
+                transform.parent = hit.transform;
+                isPlatformed = true;
+            }
+            // Debug.Log(transform.parent);
+        }
+        else
+        {
+            if (isPlatformed)
+            {
+                transform.parent = null;
+                isPlatformed = false;
+            }
+            // Debug.Log("Not on Platform");
         }
     }
 }
