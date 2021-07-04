@@ -7,8 +7,9 @@ public class Respawn : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform respawnPoint;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        Debug.Log("TEST");
         player.transform.position = respawnPoint.transform.position;
     }
 }
