@@ -42,7 +42,7 @@ public class PickUp : MonoBehaviour
                 {
                     Debug.Log(hit.transform.gameObject);
                     SetNewTransform(hit.transform);
-                    hit.transform.parent = handPosition.parent;
+                    hit.transform.parent = handPosition.transform;
                     grabbed = true;
                 }
             }
@@ -87,7 +87,7 @@ public class PickUp : MonoBehaviour
             return;
         }
         currentTransform = newTransform;
-        distanceBetween = Vector3.Distance(transform.position, newTransform.position);
+        distanceBetween = Vector3.Distance(transform.position, currentTransform.position);
 
         currentTransform.GetComponent<Rigidbody>().isKinematic = true;
     }

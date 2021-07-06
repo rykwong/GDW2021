@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             Move();
             Sprint();
         }
-        Debug.Log("Movement Speed:" + movementSpeed);
+        //Debug.Log("Movement Speed:" + movementSpeed);
     }
 
     private void Move()

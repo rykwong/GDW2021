@@ -10,6 +10,8 @@ TagManager:
   - Item
   - key
   - Pullable
+  - tile
+  - bomb
   layers:
   - Default
   - TransparentFX
