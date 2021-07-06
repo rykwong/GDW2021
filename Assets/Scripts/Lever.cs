@@ -8,8 +8,9 @@ public class Lever : MonoBehaviour, IInteractable
     [SerializeField] private GameObject target;
     public void Interact()
     {
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        GetComponent<MeshRenderer>().material.color = Color.green;
         on = true;
         target.GetComponent<ITriggerable>().Trigger();
+        tag = "Untagged";
     }
 }

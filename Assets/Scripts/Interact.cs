@@ -1,11 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
     public float rayRange = 4;
     RaycastHit hit;
+
+    private TextMeshProUGUI popup;
+
+    private void Start()
+    {
+        popup = GameObject.Find("Popup").GetComponent<TextMeshProUGUI>();
+    }
+
     void Update()
     {
         CastRay();
@@ -13,13 +23,28 @@ public class Interact : MonoBehaviour
 
     void CastRay()
     {
+        // Debug.DrawRay(transform.position, transform.forward * rayRange, Color.blue);
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayRange))
         {
             GameObject hitObject = hit.transform.gameObject;
-            if (Input.GetKeyDown(KeyCode.I))
+            if (hitObject.CompareTag("Interactable"))
             {
-                hitObject.GetComponent<IInteractable>().Interact();
+                popup.SetText( "Press I To Interact");
+                if (Input.GetKeyDown(KeyCode.I))
+                {
+                    // Debug.Log(gameObject);
+                    hitObject.GetComponent<IInteractable>().Interact();
+                }
             }
+            else
+            {
+                popup.SetText("");
+            }
+            
+        }
+        else
+        {
+            popup.SetText("");
         }
     }
 }

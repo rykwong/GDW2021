@@ -11,6 +11,7 @@ TagManager:
   - key
   - Pullable
   - Platform
+  - Interactable
   layers:
   - Default
   - TransparentFX
