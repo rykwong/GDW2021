@@ -54,7 +54,7 @@ public class PlatformController : MonoBehaviour
         transform.position = startingPoint;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(Vector3.Distance(transform.position,targetPoint) <= stoppingDistanceThreshold)
         {
