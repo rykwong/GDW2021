@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     RaycastHit hit;
 
     private TextMeshProUGUI popup;
+    [SerializeField] private GameObject sign;
 
     private void Start()
     {
@@ -39,12 +40,14 @@ public class Interact : MonoBehaviour
             else
             {
                 popup.SetText("");
+                sign.SetActive(false);
             }
             
         }
         else
         {
             popup.SetText("");
+            sign.SetActive(false);
         }
     }
 }

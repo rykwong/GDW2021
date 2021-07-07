@@ -1,25 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Lever lever1;
-    [SerializeField] private Lever lever2;
 
-    [SerializeField] private GameObject openDoor;
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private string scene;
+    public void Interact()
     {
-        CheckLever();
-    }
-
-    private void CheckLever()
-    {
-        if (lever1.on && lever2.on)
-        {
-            Debug.Log("Door open");
-            gameObject.SetActive(false);
-        }
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 }
