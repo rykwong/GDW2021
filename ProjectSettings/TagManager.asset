@@ -12,6 +12,7 @@ TagManager:
   - Pullable
   - tile
   - bomb
+  - Interactable
   layers:
   - Default
   - TransparentFX
