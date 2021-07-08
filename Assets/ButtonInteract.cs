@@ -2,10 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * This script is a fucking mess
+ * 
+ * Overview of the script:
+ *  growPlatform script
+ *  This script is meant to extend the platform
+ *  
+ *  so... here is the logic
+ *  
+ *  growPlatform = false 
+ *              ------------->
+ *                              if the player's trigger encounters the button's trigger.... set growingPlatform to true
+ *                                                                          --------------------> if growing platform is true
+ *                                                                                                                              -----------> scale platform
+ */
 public class ButtonInteract : MonoBehaviour
 {
     //switch on or off the platform extension
-    public bool growPlatform;
+    public bool growPlatform = false;
     public GameObject extendedPlatform;
     private GameObject square;
     //private GameObject sphere;
@@ -36,46 +51,38 @@ public class ButtonInteract : MonoBehaviour
         //positionChange = new Vector3(0.0f, -0.005f, 0.0f);
 
     }
-    private void Start()
-    {
-        growPlatform = false;
-        //    extendedPlatform = GameObject.Find("ExtendedPlatform");
-        //    Debug.Log("POSITION:" + extendedPlatform.transform.position);
-    }
     private void Update()
     {
-        Debug.Log("GROW PLATFORM:" + growPlatform);
-        //if (growPlatform == true)
-        //{
-        if (growPlatform == true)
+        if (growPlatform)
         {
             scalePlatform();
         }
-        //}
-        //square.transform.localScale += xChange;
-        //square.transform.position += positionChange;
-        //square.transform.localScale += scaleChange;
-        //square.transform.position += positionChange;
-
-        //// Move upwards when the sphere hits the floor or downwards
-        //// when the sphere scale extends 1.0f.
-        //if (square.transform.localScale.y < 0.1f || square.transform.localScale.y > 1.0f)
-        //{
-        //    scaleChange = -scaleChange;
-        //    positionChange = -positionChange;
-        //} 
-
     }
 
-    private void scalePlatform()
+
+    //create the growing platform
+    public void scalePlatform()
     {
         //Debug.Log("SQUARE LOCAL SCALE:" + square.transform.localScale);
         //Debug.Log("SQUARE POSITION:" + square.transform.position);
         square.transform.localScale += xScaleChange;
         square.transform.position += positionChange;
     }
-    public void setExtendPlatform(bool gp)
+    public void setGrowPlatForm()
     {
-        this.growPlatform = gp;
+        growPlatform = true;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.transform.tag == "Player")
+        {
+            Debug.Log("Player has collided");
+            setGrowPlatForm();
+
+
+        }
+    }
+
 }

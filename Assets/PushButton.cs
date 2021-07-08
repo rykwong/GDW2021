@@ -6,18 +6,29 @@ public class PushButton : MonoBehaviour
 {
     // Start is called before the first frame update
     ButtonInteract bi;
-    private void Start()
+    private void Awake()
     {
-       bi  = new ButtonInteract();
+        bi = new ButtonInteract();
+    }
+    private void Update()
+    {
+        //Debug.Log("GROW PLATFORM:" + bi.growPlatform);
+        if (bi.growPlatform == true)
+        {
+            bi.scalePlatform();
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.transform.tag == "Interactable")
         {
             Debug.Log("Player has collided");
-            bi.setExtendPlatform(true);
-            Debug.Log("EXTEND PLATFORM:" + bi.growPlatform);
+            bi.setGrowPlatForm();
+
+
+
         }
     }
 
