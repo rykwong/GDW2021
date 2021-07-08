@@ -21,6 +21,8 @@ public class ButtonInteract : MonoBehaviour
 {
     //switch on or off the platform extension
     public bool growPlatform = false;
+    public Material material;
+
     public GameObject extendedPlatform;
     private GameObject square;
     //private GameObject sphere;
@@ -46,8 +48,8 @@ public class ButtonInteract : MonoBehaviour
         scaleChange = new Vector3(0.125f, 0.125f, 0.125f);
         square.transform.localScale = scaleChange;
         square.transform.parent = extendedPlatform.transform;
-        xScaleChange = new Vector3(0.004f, 0, 0);
-        positionChange = new Vector3(0.001f, 0, 0);
+        xScaleChange = new Vector3(0.005f, 0, 0);
+        positionChange = new Vector3(0.002f, 0, 0);
         //positionChange = new Vector3(0.0f, -0.005f, 0.0f);
 
     }
@@ -55,7 +57,9 @@ public class ButtonInteract : MonoBehaviour
     {
         if (growPlatform)
         {
+            this.gameObject.GetComponent<Renderer>().material = material;
             scalePlatform();
+
         }
     }
 

@@ -31,7 +31,7 @@ public class ZDirectionBlocks : MonoBehaviour
         {
 
             pf = Instantiate(block, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - i * offSet), Quaternion.identity);
-            pf.transform.localScale = new Vector3(0.125f, 0.125f, 0.125f);
+            pf.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
             Destroy(pf, 5f);
             yield return new WaitForSeconds(2f);
