@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Fire
-  - Pickable
-  - Pushable
-  - Item
-  - key
-  - Pullable
-  - Platform
-  - Interactable
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - 
   - 
   - 
   - 

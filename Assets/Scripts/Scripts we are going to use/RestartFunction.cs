@@ -10,11 +10,7 @@ public class RestartFunction : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            //reload the current scene
-
-            SceneManager.LoadScene(0);
-        }
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Thomas");   
     }
 }
