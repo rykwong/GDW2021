@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Door : MonoBehaviour, IInteractable
+public class SceneTransition : MonoBehaviour
 {
-
-    [SerializeField] private string scene;
-    public void Interact()
+    public void Transition(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }

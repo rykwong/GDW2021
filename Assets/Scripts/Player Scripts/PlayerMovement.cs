@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     //smooth dampener
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!PauseMenu.gameIsPaused)
         {
