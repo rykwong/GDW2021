@@ -1,18 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *How to use this script:
- *  the moving platform takes these objects:
- *      Player
- *        empty object 1 called point1
- *        empty object 2 called point2
- *       
- *     set how many points you want to move between
- */
-public class MovingPlatform : MonoBehaviour, ITriggerable
+public class MagicCarpet : MonoBehaviour
 {
     public GameObject player;
     public bool onPlatform;
@@ -58,26 +48,22 @@ public class MovingPlatform : MonoBehaviour, ITriggerable
         }
     }
 
-    public void Trigger()
-    {
-        on = true;
-    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            on = true;
             player.transform.parent = this.transform;
-            //onPlatform = true;
+            onPlatform = true;
+
         }
     }
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (onPlatform)
         {
-            //onPlatform = false;
             player.transform.parent = null;
         }
     }
 }
-
-

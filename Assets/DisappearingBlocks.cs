@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZDirectionBlocks : MonoBehaviour
+public class DisappearingBlocks : MonoBehaviour, ITriggerable
 {
     public float blockCount;
     GameObject pf;
     // Start is called before the first frame update
     public GameObject block;
+    //space between each block
     public float offSet;
-    bool restart;
+    [SerializeField] private bool on;
     void Start()
     {
-        StartCoroutine(spawnBlocks(blockCount));
+
+        if (on)
+        {
+            StartCoroutine(spawnBlocks(blockCount));
+        }
+        //if (on)
+        //{
+        //    StartCoroutine(spawnBlocks(blockCount));
+        //}
     }
 
     // Update is called once per frame
@@ -33,15 +42,21 @@ public class ZDirectionBlocks : MonoBehaviour
             pf = Instantiate(block, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - i * offSet), Quaternion.identity);
             pf.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
-            Destroy(pf, 5f);
+            //Destroy(pf, 5f);
             yield return new WaitForSeconds(2f);
-            if (i == 4)
-            {
-                StartCoroutine(spawnBlocks(blockCount));
-            }
+            //if (i == 4)
+            //{
+            //    StartCoroutine(spawnBlocks(blockCount));
+            //}
         }
 
 
 
     }
+    public void Trigger()
+    {
+        on = true;
+        this.enabled = true;
+    }
+
 }
