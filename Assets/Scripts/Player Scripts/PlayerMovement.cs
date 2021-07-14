@@ -129,23 +129,23 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = pushDir * pushPower;
         }
 
-        if (hit.transform.CompareTag("Platform"))
-        {
-            if (!isPlatformed)
-            {
-                transform.parent = hit.transform;
-                isPlatformed = true;
-            }
-            // Debug.Log(transform.parent);
-        }
-        else
-        {
-            if (isPlatformed)
-            {
-                transform.parent = null;
-                isPlatformed = false;
-            }
-            // Debug.Log("Not on Platform");
-        }
+        // if (hit.transform.CompareTag("Platform"))
+        // {
+        //     if (!isPlatformed)
+        //     {
+        //         transform.parent = hit.transform;
+        //         isPlatformed = true;
+        //     }
+        //     // Debug.Log(transform.parent);
+        // }
+        // else
+        // {
+        //     if (isPlatformed)
+        //     {
+        //         transform.parent = null;
+        //         isPlatformed = false;
+        //     }
+        //     Debug.Log("Not on Platform");
+        // }
     }
 }

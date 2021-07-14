@@ -2,29 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MovingPlatform : MonoBehaviour,ITriggerable
+public class LoopingPlatform : MonoBehaviour
 {
+     
     private int index = 0;
-    private float wait;
-    private int triggers = 0;
-    private bool isPlatformed;
     [SerializeField] private List<Vector3> points = new List<Vector3>();
     [SerializeField] private float speed;
     [SerializeField] private float distanceOffset;
-    [SerializeField] private float initWait;
-    [SerializeField] private int triggersNeeded;
-    
-
+    [SerializeField] private int startIndex;
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
-        wait = initWait;
+        index = startIndex;
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void LateUpdate()
     {
-        if(triggers == triggersNeeded) Move();
+        Move();
     }
 
     private void Move()
@@ -34,37 +32,30 @@ public class MovingPlatform : MonoBehaviour,ITriggerable
             transform.position = Vector3.MoveTowards(transform.position, points[index],speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, points[index]) < distanceOffset)
             {
-                if (wait <= 0)
+                index++;
+                if (index == points.Count)
                 {
-                    index = (index + 1) % points.Count;
-                    wait = initWait;
-                }
-                else
-                {
-                    wait -= Time.deltaTime;
+                    index = 0;
+                    transform.position = points[index];
                 }
             }
         }
     }
-
-    public void Trigger()
-    {
-        triggers++;
-    }
     
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
-            other.transform.parent = transform;
-            isPlatformed = true;
+            player.transform.parent = this.transform;
+            //onPlatform = true;
         }
     }
     public void OnTriggerExit(Collider other)
     {
-        if (isPlatformed)
+        if (other.tag == "Player")
         {
-            other.transform.parent = null;
+            //onPlatform = false;
+            player.transform.parent = null;
         }
     }
 }
