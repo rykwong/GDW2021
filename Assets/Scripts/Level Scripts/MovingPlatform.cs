@@ -14,12 +14,9 @@ using UnityEngine;
  */
 public class MovingPlatform : MonoBehaviour, ITriggerable
 {
-    public GameObject player;
-    public bool onPlatform;
     private int index = 0;
     private float wait;
     private int triggers = 0;
-    private bool isPlatformed;
     [SerializeField] private List<Vector3> points = new List<Vector3>();
     [SerializeField] private float speed;
     [SerializeField] private float distanceOffset;
@@ -66,18 +63,16 @@ public class MovingPlatform : MonoBehaviour, ITriggerable
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            player.transform.parent = this.transform;
-            //onPlatform = true;
+            other.transform.parent = transform;
         }
     }
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            //onPlatform = false;
-            player.transform.parent = null;
+            other.transform.parent = null;
         }
     }
 }

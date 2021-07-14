@@ -12,8 +12,6 @@ public class LoopingPlatform : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float distanceOffset;
     [SerializeField] private int startIndex;
-    [SerializeField] private GameObject player;
-
     private void Start()
     {
         index = startIndex;
@@ -44,18 +42,16 @@ public class LoopingPlatform : MonoBehaviour
     
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            player.transform.parent = this.transform;
-            //onPlatform = true;
+            other.transform.parent = transform;
         }
     }
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            //onPlatform = false;
-            player.transform.parent = null;
+            other.transform.parent = null;
         }
     }
 }
