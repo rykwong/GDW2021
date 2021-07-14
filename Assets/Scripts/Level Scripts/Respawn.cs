@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    [SerializeField] private GameObject spawnpoint;
+    [SerializeField] private Vector3 spawnpoint;
 
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.position = spawnpoint.transform.position;
+        other.transform.position = spawnpoint;
     }
 }

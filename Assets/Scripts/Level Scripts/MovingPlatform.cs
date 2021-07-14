@@ -7,11 +7,13 @@ public class MovingPlatform : MonoBehaviour,ITriggerable
 {
     private int index = 0;
     private float wait;
-    [SerializeField] private List<Transform> points = new List<Transform>();
+    private int triggers = 0;
+    [SerializeField] private List<Vector3> points = new List<Vector3>();
     [SerializeField] private float speed;
     [SerializeField] private float distanceOffset;
     [SerializeField] private float initWait;
-    [SerializeField] private bool on;
+    [SerializeField] private int triggersNeeded;
+    
 
     private void Start()
     {
@@ -20,15 +22,15 @@ public class MovingPlatform : MonoBehaviour,ITriggerable
 
     void FixedUpdate()
     {
-        if(on) Move();
+        if(triggers == triggersNeeded) Move();
     }
 
     private void Move()
     {
         if (points.Count > 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, points[index].transform.position,speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, points[index].transform.position) < distanceOffset)
+            transform.position = Vector3.MoveTowards(transform.position, points[index],speed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, points[index]) < distanceOffset)
             {
                 if (wait <= 0)
                 {
@@ -45,6 +47,6 @@ public class MovingPlatform : MonoBehaviour,ITriggerable
 
     public void Trigger()
     {
-        on = true;
+        triggers++;
     }
 }
