@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -23,16 +24,20 @@ public class PlayerMovement : MonoBehaviour
     //physics
     private Vector3 velocity;
     Vector3 move;
-    private float gravity = -9.18f;
+    [SerializeField] private float gravity = -9.18f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    [Header("Push Variables")]
-    public float pushPower = 2.0f;
-    public float pushDistance;
-    private GameObject box;
-    RaycastHit hit;
+    // [Header("Push Variables")]
+    // public float pushPower = 2.0f;
+    // public float pushDistance;
+    // RaycastHit hit;
+    // private TextMeshProUGUI popup;
+    private void Start()
+    {
+        // popup = GameObject.Find("Popup").GetComponent<TextMeshProUGUI>();
+    }
 
     //boolean
 
@@ -57,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
             Sprint();
-            Push();
+            // Push();
         }
         //Debug.Log("Movement Speed:" + movementSpeed);
     }
@@ -108,71 +113,29 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void Push()
-    {
-        Debug.DrawRay(transform.position, transform.forward * pushDistance, Color.blue);
-        if (Physics.Raycast(transform.position, transform.forward, out hit, pushDistance))
-        {
-            if (hit.collider.gameObject.CompareTag("Pushable"))
-            {
-                Debug.Log(hit);
-                if (Input.GetKey(KeyCode.P))
-                {
-                    // Debug.Log(gameObject);
-                    Vector3 direction = new Vector3(transform.forward.x, 0, transform.forward.z);
-                    hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(direction*pushPower);
-                }
-            }
-        }
-
-
-    }
-    // void OnControllerColliderHit(ControllerColliderHit hit)
+    // private void Push()
     // {
-    //     if (hit.transform.tag == "Pushable")
+    //     Debug.DrawRay(transform.position, transform.forward * pushDistance, Color.blue);
+    //     if (Physics.Raycast(transform.position, transform.forward, out hit, pushDistance))
     //     {
-    //         Rigidbody body = hit.collider.attachedRigidbody;
-    //
-    //         // no rigidbody
-    //         if (body == null || body.isKinematic)
+    //         if (hit.collider.gameObject.CompareTag("Pushable"))
     //         {
-    //             return;
+    //             popup.SetText( "Press P To Push");
+    //             if (Input.GetKey(KeyCode.P))
+    //             {
+    //                 // Debug.Log(gameObject);
+    //                 Vector3 direction = new Vector3(transform.forward.x, 0, transform.forward.z);
+    //                 hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(direction*pushPower);
+    //             }
     //         }
-    //
-    //         // We dont want to push objects below us
-    //         if (hit.moveDirection.y < -0.3)
+    //         else
     //         {
-    //             return;
+    //             popup.SetText( "");
     //         }
-    //
-    //         // Calculate push direction from move direction,
-    //         // we only push objects to the sides never up and down
-    //         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-    //
-    //         // If you know how fast your character is trying to move,
-    //         // then you can also multiply the push velocity by that.
-    //
-    //         // Apply the push
-    //         body.velocity = pushDir * pushPower;
     //     }
-    //
-    //     // if (hit.transform.CompareTag("Platform"))
-    //     // {
-    //     //     if (!isPlatformed)
-    //     //     {
-    //     //         transform.parent = hit.transform;
-    //     //         isPlatformed = true;
-    //     //     }
-    //     //     // Debug.Log(transform.parent);
-    //     // }
-    //     // else
-    //     // {
-    //     //     if (isPlatformed)
-    //     //     {
-    //     //         transform.parent = null;
-    //     //         isPlatformed = false;
-    //     //     }
-    //     //     Debug.Log("Not on Platform");
-    //     // }
+    //     else
+    //     {
+    //         popup.SetText( "");
+    //     }
     // }
 }
