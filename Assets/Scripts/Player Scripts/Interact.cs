@@ -11,6 +11,7 @@ public class Interact : MonoBehaviour
 
     private TextMeshProUGUI popup;
     [SerializeField] private GameObject sign;
+    public float pushPower = 100.0f;
 
     private void Start()
     {
@@ -35,6 +36,16 @@ public class Interact : MonoBehaviour
                 {
                     // Debug.Log(gameObject);
                     hitObject.GetComponent<IInteractable>().Interact();
+                }
+            }
+            else if (hitObject.CompareTag("Pushable"))
+            {
+                popup.SetText( "Press P To Push");
+                if (Input.GetKey(KeyCode.P))
+                {
+                    // Debug.Log(hitObject.transform.position - transform.position);
+                    Vector3 direction = new Vector3(transform.forward.x, 0, transform.forward.z);
+                    hitObject.GetComponent<Rigidbody>().AddForce(direction*pushPower);
                 }
             }
             else
