@@ -36,7 +36,7 @@ public class SpawnBridge : MonoBehaviour, ITriggerable
             Quaternion.identity);
         pf.AddComponent<Rigidbody>();
         pf.layer = 6;
-        pf.transform.localScale = new Vector3(1.0f, 20.0f, 6.0f);
+        pf.transform.localScale = new Vector3(1.0f, 20.0f, 1.0f);
         pf.transform.eulerAngles = new Vector3(0, 0, 92.1f);
         //pf.GetComponent<Rigidbody>().isKinematic = true;
         //pf.transform.parent = this.transform;
