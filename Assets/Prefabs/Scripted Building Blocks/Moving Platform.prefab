@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2329907237697713476}
   - component: {fileID: 2329907237697713477}
   - component: {fileID: 2329907237697713475}
+  - component: {fileID: 2738477062230775079}
   m_Layer: 6
   m_Name: Moving Platform
   m_TagString: Platform
@@ -355,9 +356,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {x: 1.15185e-31, y: 4.5836e-41, z: 1.661602e+22}
+  - {x: 0.0000006564136, y: 2.0466853e-13, z: 1e-45}
   speed: 10
   distanceOffset: 0.05
   initWait: 2
-  on: 0
+  triggersNeeded: 0
+--- !u!65 &2738477062230775079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329907237697713482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 2.5, z: 4}
+  m_Center: {x: 0, y: 0, z: 0}
