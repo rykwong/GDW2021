@@ -96633,8 +96633,16 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
+      propertyPath: pushPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
       propertyPath: walkSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
+      propertyPath: pushDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
       propertyPath: runBuildUpSpeed
@@ -100249,7 +100257,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1434
+  m_Name: pb_Mesh-1390
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
