@@ -5,23 +5,13 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    [SerializeField] private Vector3 spawnpoint;
     [SerializeField] private bool reset;
-    [SerializeField] private bool playerOnly;
+    [SerializeField] private Vector3 spawnpoint;
 
     private void OnTriggerEnter(Collider other)
     {
         if(reset) GameObject.Find("GameManager").GetComponent<HiddenPuzzleManager>().GeneratePuzzle();
-        if (playerOnly)
-        {
-            if (other.transform.CompareTag("Player"))
-            {
-                other.transform.position = spawnpoint;
-            }
-        }
-        else
-        {
-            other.transform.position = spawnpoint;
-        }
+        if (other.gameObject.CompareTag("Player")) other.transform.position = spawnpoint;
+        else if(other.GetComponent<Respawnable>()) other.GetComponent<Respawnable>().Respawn();
     }
 }

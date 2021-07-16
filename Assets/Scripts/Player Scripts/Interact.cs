@@ -40,8 +40,8 @@ public class Interact : MonoBehaviour
             }
             else if (hitObject.CompareTag("Pushable"))
             {
-                popup.SetText( "Press P To Push");
-                if (Input.GetKey(KeyCode.P))
+                popup.SetText( "Press Q To Push");
+                if (Input.GetKey(KeyCode.Q))
                 {
                     // Debug.Log(hitObject.transform.position - transform.position);
                     Vector3 direction = new Vector3(transform.forward.x, 0, transform.forward.z);
