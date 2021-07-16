@@ -49662,6 +49662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoint: {x: 0, y: 45, z: 190}
   reset: 1
+  playerOnly: 0
 --- !u!43 &730768682
 Mesh:
   m_ObjectHideFlags: 0
@@ -71997,6 +71998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoint: {x: 0, y: 3, z: 100}
   reset: 0
+  playerOnly: 0
 --- !u!65 &1432842033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75419,6 +75421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoint: {x: 0, y: 3, z: -115}
   reset: 0
+  playerOnly: 0
 --- !u!65 &1505962146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99015,7 +99018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
       propertyPath: runSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
       propertyPath: pushPower
@@ -99023,7 +99026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
       propertyPath: walkSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4395292992172022551, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
       propertyPath: pushDistance

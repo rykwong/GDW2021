@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private string[] instructions;
     private int index = 0;
+
+    private void Start()
+    {
+        PlayerPrefs.SetFloat("X", 0);
+        PlayerPrefs.SetFloat("Y", 3);
+        PlayerPrefs.SetFloat("Z", -115);
+    }
 
     // Update is called once per frame
     void Update()

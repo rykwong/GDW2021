@@ -25,7 +25,7 @@ public class Interact : MonoBehaviour
 
     void CastRay()
     {
-        // Debug.DrawRay(transform.position, transform.forward * rayRange, Color.blue);
+        Debug.DrawRay(transform.position, transform.forward * rayRange, Color.blue);
         if(Physics.Raycast(transform.position, transform.forward, out hit, rayRange))
         {
             GameObject hitObject = hit.transform.gameObject;

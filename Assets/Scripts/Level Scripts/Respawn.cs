@@ -7,10 +7,21 @@ public class Respawn : MonoBehaviour
 {
     [SerializeField] private Vector3 spawnpoint;
     [SerializeField] private bool reset;
+    [SerializeField] private bool playerOnly;
 
     private void OnTriggerEnter(Collider other)
     {
         if(reset) GameObject.Find("GameManager").GetComponent<HiddenPuzzleManager>().GeneratePuzzle();
-        other.transform.position = spawnpoint;
+        if (playerOnly)
+        {
+            if (other.transform.CompareTag("Player"))
+            {
+                other.transform.position = spawnpoint;
+            }
+        }
+        else
+        {
+            other.transform.position = spawnpoint;
+        }
     }
 }
