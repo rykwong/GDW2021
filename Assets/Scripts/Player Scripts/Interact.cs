@@ -13,6 +13,9 @@ public class Interact : MonoBehaviour
     [SerializeField] private GameObject sign;
     public float pushPower = 100.0f;
 
+    PickUp p = new PickUp();
+
+
     private void Start()
     {
         popup = GameObject.Find("Popup").GetComponent<TextMeshProUGUI>();
@@ -26,12 +29,12 @@ public class Interact : MonoBehaviour
     void CastRay()
     {
         Debug.DrawRay(transform.position, transform.forward * rayRange, Color.blue);
-        if(Physics.Raycast(transform.position, transform.forward, out hit, rayRange))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rayRange))
         {
             GameObject hitObject = hit.transform.gameObject;
             if (hitObject.CompareTag("Interactable"))
             {
-                popup.SetText( "Press I To Interact");
+                popup.SetText("Press I To Interact");
                 if (Input.GetKeyDown(KeyCode.I))
                 {
                     // Debug.Log(gameObject);
@@ -40,20 +43,29 @@ public class Interact : MonoBehaviour
             }
             else if (hitObject.CompareTag("Pushable"))
             {
-                popup.SetText( "Press Q To Push");
+                popup.SetText("Press Q To Push");
                 if (Input.GetKey(KeyCode.Q))
                 {
                     // Debug.Log(hitObject.transform.position - transform.position);
                     Vector3 direction = new Vector3(transform.forward.x, 0, transform.forward.z);
-                    hitObject.GetComponent<Rigidbody>().AddForce(direction*pushPower);
+                    hitObject.GetComponent<Rigidbody>().AddForce(direction * pushPower);
                 }
             }
+            else if (hitObject.CompareTag("Pickable"))
+            {
+                popup.SetText("Press E To Pickup");
+                if (p.grabbed == true)
+                {
+                    popup.SetText("Press Right Mouse Button To Drop");
+                }
+            }
+
             else
             {
                 popup.SetText("");
                 sign.SetActive(false);
             }
-            
+
         }
         else
         {

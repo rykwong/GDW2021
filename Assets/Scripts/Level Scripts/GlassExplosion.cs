@@ -9,7 +9,7 @@ public class GlassExplosion : MonoBehaviour
      * Attach this script to any object you want to explode
      * Trigger for explosion is an object with the tag "Player"
      */
-    public float cubeSize = 0.2f;
+    public float cubeSize;
     public int cubesInRow = 5;
     float cubePivotDistance;
     Vector3 cubePivot;
@@ -35,7 +35,7 @@ public class GlassExplosion : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Pushable")
         {
             explode();
         }
@@ -78,13 +78,13 @@ public class GlassExplosion : MonoBehaviour
         //all the pieces will be 0.5 units apart and equal distance?
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubePivot;
         piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
-
+        //piece.GetComponent<BoxCollider>().enabled = false;
         //add rigidbody and set mass
         //why?
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
         piece.GetComponent<Renderer>().material.color = Color.black;
-        Destroy(piece, 5f);
+        Destroy(piece, 10f);
 
 
 
