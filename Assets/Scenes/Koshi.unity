@@ -4135,6 +4135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Heaven1
+  pos: {x: 0, y: 43, z: -10}
+  loadCoords: 1
 --- !u!43 &525813893
 Mesh:
   m_ObjectHideFlags: 0
@@ -9342,7 +9344,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh301662
+  m_Name: pb_Mesh36308
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

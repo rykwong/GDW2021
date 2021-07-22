@@ -1723,6 +1723,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4395292992172022547, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395292992172022547, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395292992172022547, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39b369d68fea5694a8076ed3d1e1e971, type: 3}
 --- !u!1 &454207795
@@ -4435,11 +4447,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 509674638}
+  - {x: 6.5508505e+14, y: 4.5852e-41, z: 1.661602e+22}
   speed: 1
   distanceOffset: 0.01
   initWait: 0
-  on: 0
+  triggersNeeded: 0
 --- !u!64 &1679635626
 MeshCollider:
   m_ObjectHideFlags: 0

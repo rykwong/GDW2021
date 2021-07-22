@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
     private Transform toMove;
+    private GameObject movement;
 
     //velocity
     Vector3 currentDirVelocity = Vector3.zero;
@@ -64,7 +65,8 @@ public class PlayerMovement : MonoBehaviour
             Sprint();
             // Push();
         }
-        //Debug.Log("Movement Speed:" + movementSpeed);
+        Debug.Log("Movement Speed:" + movementSpeed);
+        Debug.LogError("I am an error through Debug.LogError");
     }
 
     private void Move()

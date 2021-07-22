@@ -9,4 +9,45 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
+
+    public void SetTransition(string sceneSelect)
+    {
+        Vector3 pos = Vector3.zero;
+        string scene = "";
+        if (sceneSelect == "Limbo")
+        {
+            scene = "Limbo";
+        }
+        else if (sceneSelect == "Platform")
+        {
+            scene = "Thomas2";
+        }
+        else if (sceneSelect == "Heaven1")
+        {
+            pos = new Vector3(0, 3, -115);
+            scene = "Heaven1";
+        }
+        else if (sceneSelect == "Heaven2")
+        {
+            pos = new Vector3(0, 3, -20);
+            scene = "Heaven1";
+        }
+        else if (sceneSelect == "Heaven3")
+        {
+            pos = new Vector3(0, 43, 190);
+            scene = "Heaven1";
+        }
+        else if (sceneSelect == "Puzzle1")
+        {
+            scene = "Koshi";
+        }
+
+        if (pos != Vector3.zero)
+        {
+            PlayerPrefs.SetFloat("X", pos.x);
+            PlayerPrefs.SetFloat("Y", pos.y);
+            PlayerPrefs.SetFloat("Z", pos.z);
+        }
+        Transition(scene);
+    }
 }

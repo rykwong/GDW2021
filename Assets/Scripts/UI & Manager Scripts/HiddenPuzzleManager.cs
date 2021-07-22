@@ -34,19 +34,20 @@ public class HiddenPuzzleManager : MonoBehaviour
         for(int i = 0; i < answers.Length; i ++)
         {
             MeshCollider tile = tiles[i].GetComponent<MeshCollider>();
+            MeshRenderer answer = answerTiles[i].GetComponent<MeshRenderer>();
             if (answers[i])
             {
                 tiles[i].layer = 6;
                 tile.isTrigger = false;
                 tile.convex = false;
-                answerTiles[i].SetActive(true);
+                answer.material.color = Color.green;
             }
             else
             {
                 tiles[i].layer = 0;
                 tile.convex = true;
                 tile.isTrigger = true;
-                answerTiles[i].SetActive(false);
+                answer.material.color = Color.red;
             }
         }
     }
