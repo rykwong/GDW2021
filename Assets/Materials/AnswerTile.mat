@@ -9,7 +9,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: AnswerTile
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+<<<<<<< HEAD:Assets/Materials/AnswerTile.mat
   m_ShaderKeywords: 
+=======
+  m_ShaderKeywords: _ALPHABLEND_ON
+>>>>>>> Thomas:Assets/Prefabs/Materials/Glass 1.mat
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -61,18 +65,26 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.25
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
+<<<<<<< HEAD:Assets/Materials/AnswerTile.mat
     - _Mode: 0
+=======
+    - _Mode: 2
+>>>>>>> Thomas:Assets/Prefabs/Materials/Glass 1.mat
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD:Assets/Materials/AnswerTile.mat
     - _Color: {r: 0.1745283, g: 1, b: 0.256594, a: 1}
+=======
+    - _Color: {r: 0.10943401, g: 0.15394719, b: 1, a: 0.078431375}
+>>>>>>> Thomas:Assets/Prefabs/Materials/Glass 1.mat
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

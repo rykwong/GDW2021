@@ -6,21 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level Select.unity
-    guid: 6d902fa45263d4c5b820f77c17706ebb
-  - enabled: 1
-    path: Assets/Scenes/Levels/Heaven1.unity
-    guid: 8b4327dd7017944bdab38b7c7f32b40c
-  - enabled: 1
-    path: Assets/Scenes/Levels/Limbo.unity
-    guid: a14f803451672406487b4919ddd42c08
-  - enabled: 1
-    path: Assets/Scenes/Ryan.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Koshi.unity
-    guid: 4dd11d154a040446dac5aa49903c7da0
-  - enabled: 1
-    path: Assets/Scenes/Thomas2.unity
+    path: Assets/Scenes/EasyLevel.unity
     guid: b9101c6610408b94b90a8d52dbd34c3f
   m_configObjects: {}
