@@ -37,7 +37,7 @@ public class Interact : MonoBehaviour
                 popup.SetText("Press I To Interact");
                 if (Input.GetKeyDown(KeyCode.I))
                 {
-                    // Debug.Log(gameObject);
+                    Debug.Log(gameObject);
                     hitObject.GetComponent<IInteractable>().Interact();
                 }
             }
