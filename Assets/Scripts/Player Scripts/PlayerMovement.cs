@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             // Push();
         }
         Debug.Log("Movement Speed:" + movementSpeed);
-        Debug.LogError("I am an error through Debug.LogError");
+        //Debug.LogError("I am an error through Debug.LogError");
     }
 
     private void Move()
