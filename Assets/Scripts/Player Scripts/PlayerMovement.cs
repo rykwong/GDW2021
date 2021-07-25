@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     //jump
     [Header("Jump Variables")]
     public float jumpHeight = 3f;
-    
+
     [Header("Physics Variables")]
     //physics
     private Vector3 velocity;
@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
             // Push();
         }
         //Debug.Log("Movement Speed:" + movementSpeed);
+<<<<<<< Updated upstream
+=======
+        //Debug.LogError("I am an error through Debug.LogError");
+>>>>>>> Stashed changes
     }
 
     private void Move()
