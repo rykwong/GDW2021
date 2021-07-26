@@ -10,6 +10,7 @@ public class Sentry : MonoBehaviour
     private float EyeScanZ = 0;
     private int index = 0;
     private Vector3 initPos;
+    private float wait;
 
     [Header("Player Detection Variables")]
     [SerializeField] private float ViewDistance = 2f;
@@ -23,6 +24,8 @@ public class Sentry : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float rotSpeed;
     [SerializeField] private List<Vector3> points = new List<Vector3>();
+    [SerializeField] private List<Transform> points2 = new List<Transform>();
+    [SerializeField] private float initWait;
 
     private void Start()
     {
@@ -45,7 +48,32 @@ public class Sentry : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward,points[index]-transform.position,rotSpeed*Time.deltaTime,0.0f));
             if (Vector3.Distance(transform.position, points[index]) < distanceOffset)
             {
-                index = (index + 1) % points.Count;
+                if (wait <= 0)
+                {
+                    index = (index + 1) % points.Count;
+                    wait = initWait;
+                }
+                else
+                {
+                    wait -= Time.deltaTime;
+                }
+            }
+        }
+        else if (points2.Count > 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, points2[index].transform.position,speed * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward,points2[index].transform.position-transform.position,rotSpeed*Time.deltaTime,0.0f));
+            if (Vector3.Distance(transform.position, points2[index].transform.position) < distanceOffset)
+            {
+                if (wait <= 0)
+                {
+                    index = (index + 1) % points2.Count;
+                    wait = initWait;
+                }
+                else
+                {
+                    wait -= Time.deltaTime;
+                }
             }
         }
     }

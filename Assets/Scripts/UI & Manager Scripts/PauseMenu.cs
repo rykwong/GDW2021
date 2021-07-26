@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*If we have audio, we will also have to turn that off in this code. 
  * 
@@ -58,6 +59,7 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         Debug.Log("Loading Menu....");
+        SceneManager.LoadScene("Level Select", LoadSceneMode.Single);
     }
     public void Options()
     {
