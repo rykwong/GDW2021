@@ -11,7 +11,7 @@ public class PickUp : MonoBehaviour
     RaycastHit hit;
     public LayerMask RayMask;
     public Transform handPosition;
-    bool grabbed;
+    public bool grabbed;
     Vector3 v3_rotation;
     bool b_IsRotating = false;
 
@@ -34,7 +34,7 @@ public class PickUp : MonoBehaviour
         //press E -> 
         //ray cast on to object -> if hit.transform.tag == "Pickable"
         // hit.parent = camera.parent
-        Debug.DrawRay(transform.position, transform.forward * 5, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * 20, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, 5, RayMask))
@@ -65,6 +65,11 @@ public class PickUp : MonoBehaviour
                     //    hit.transform.eulerAngles = new Vector3(x, y, z++);
                     //}
                 }
+                else
+                {
+                    grabbed = false;
+                }
+
             }
         }
 
@@ -75,6 +80,7 @@ public class PickUp : MonoBehaviour
             {
                 hit.transform.parent = null;
             }
+            grabbed = false;
             //if (hit.transform.gameObject.GetComponent<Transform>().parent != null)
             //{
 
@@ -90,6 +96,7 @@ public class PickUp : MonoBehaviour
 
 
         }
+
         //rotate a picked up object
         if (Input.GetKey(KeyCode.Alpha1))
         {

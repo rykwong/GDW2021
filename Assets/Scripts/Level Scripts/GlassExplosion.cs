@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlassExplosion : MonoBehaviour
+public class GlassExplosion : MonoBehaviour, ITriggerable
 {
     // Start is called before the first frame update
     /*
      * Attach this script to any object you want to explode
      * Trigger for explosion is an object with the tag "Player"
      */
-    public float cubeSize = 0.2f;
+    [SerializeField] private GameObject target;
+    [SerializeField] private bool on;
+    public float cubeSize;
     public int cubesInRow = 5;
     float cubePivotDistance;
     Vector3 cubePivot;
+
+
 
     public float time = 10;
     public float explosionRadius;
     public float explosionForce;
     public float explosionUpward;
+
     void Start()
     {
         //what does this do?
@@ -26,20 +31,19 @@ public class GlassExplosion : MonoBehaviour
         cubePivotDistance = cubeSize * cubesInRow / 2;
         //use this value to create pivot vector???
         cubePivot = new Vector3(cubePivotDistance, cubePivotDistance, cubePivotDistance);
+
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        if (on)
         {
             explode();
         }
     }
+
     public void explode()
     {
         gameObject.SetActive(false);
@@ -78,17 +82,31 @@ public class GlassExplosion : MonoBehaviour
         //all the pieces will be 0.5 units apart and equal distance?
         piece.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z) - cubePivot;
         piece.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
-
+        //piece.GetComponent<BoxCollider>().enabled = false;
         //add rigidbody and set mass
         //why?
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
-        piece.GetComponent<Renderer>().material.color = Color.black;
-        Destroy(piece, 5f);
+        piece.GetComponent<Renderer>().material.color = Color.red;  
+
+        Destroy(piece, time);
+
 
 
 
 
 
     }
+
+    public void Trigger()
+    {
+        on = true;
+       
+    }
+    //public void Interact()
+    //{
+    //    Debug.Log("Interacted");
+    //    target.GetComponent<ITriggerable>().Trigger();
+    //}
+
 }
