@@ -64,11 +64,7 @@ public class PlayerMovement : MonoBehaviour
             Sprint();
             // Push();
         }
-        //Debug.Log("Movement Speed:" + movementSpeed);
-<<<<<<< Updated upstream
-=======
-        //Debug.LogError("I am an error through Debug.LogError");
->>>>>>> Stashed changes
+
     }
 
     private void Move()

@@ -8,21 +8,22 @@ public class DisappearingBlocks : MonoBehaviour
     GameObject pf;
     // Start is called before the first frame update
     public GameObject block;
+    public float blockSize;
     //space between each block
     public float offSet;
     public bool X = false;
     public bool Y = false;
     public bool Z = false;
+    public bool on = true;
     void Start()
     {
 
 
+        //StartCoroutine(spawnBlocks(blockCount));
+
+
         StartCoroutine(spawnBlocks(blockCount));
 
-        //if (on)
-        //{
-        //    StartCoroutine(spawnBlocks(blockCount));
-        //}
     }
 
     // Update is called once per frame
@@ -44,20 +45,21 @@ public class DisappearingBlocks : MonoBehaviour
             if (X)
             {
                 pf = Instantiate(block, new Vector3(this.transform.position.x - i * offSet, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-                pf.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                pf.transform.localScale = new Vector3(blockSize, 0.125f, blockSize);
 
                 Destroy(pf, 6f);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
 
                 if (i == 4)
                 {
                     StartCoroutine(spawnBlocks(blockCount));
                 }
             }
-            else if (Z)
+            if (Z)
             {
                 pf = Instantiate(block, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + i * offSet), Quaternion.identity);
-                pf.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                pf.transform.localScale = new Vector3(blockSize, 0.125f, blockSize);
+
                 Destroy(pf, 5f);
                 yield return new WaitForSeconds(2f);
 
@@ -66,6 +68,8 @@ public class DisappearingBlocks : MonoBehaviour
                     StartCoroutine(spawnBlocks(blockCount));
                 }
             }
+
+
 
 
         }
