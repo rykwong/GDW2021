@@ -17,7 +17,7 @@ public class PickUp2 : MonoBehaviour
     void Update()
     {
 
-        distance = Vector3.Distance(item.transform.position, tempParent.transform.position);
+        distance = Vector3.Distance(item.transform.position, tempParent.transform.position);    
         if (distance >= 1f)
         {
             isHolding = false;  
