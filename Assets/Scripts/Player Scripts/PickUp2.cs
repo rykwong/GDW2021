@@ -44,44 +44,44 @@ public class PickUp2 : MonoBehaviour
                 isHolding = false;
             }
 
-            //rotate a picked up object
-            if (Input.GetKey(KeyCode.Alpha1))
-            {
-                //hit.transform.localEulerAngles = new Vector3()
-                v3_rotation = new Vector3(1, 0, 0);
-                item.transform.Rotate(v3_rotation, Space.Self);
-            }
-            else if (Input.GetKey(KeyCode.Alpha3))
-            {
-                //hit.transform.localEulerAngles = new Vector3()
-                v3_rotation = new Vector3(0, 1, 0);
-                item.transform.Rotate(v3_rotation, Space.Self);
-            }
-            else if (Input.GetKey(KeyCode.Alpha5))
-            {
-                //hit.transform.localEulerAngles = new Vector3()
-                v3_rotation = new Vector3(0, 0, 1);
-                item.transform.Rotate(v3_rotation, Space.Self);
-            }
+            ////rotate a picked up object
+            //if (Input.GetKey(KeyCode.Alpha1))
+            //{
+            //    //hit.transform.localEulerAngles = new Vector3()
+            //    v3_rotation = new Vector3(1, 0, 0);
+            //    item.transform.Rotate(v3_rotation, Space.Self);
+            //}
+            //else if (Input.GetKey(KeyCode.Alpha3))
+            //{
+            //    //hit.transform.localEulerAngles = new Vector3()
+            //    v3_rotation = new Vector3(0, 1, 0);
+            //    item.transform.Rotate(v3_rotation, Space.Self);
+            //}
+            //else if (Input.GetKey(KeyCode.Alpha5))
+            //{
+            //    //hit.transform.localEulerAngles = new Vector3()
+            //    v3_rotation = new Vector3(0, 0, 1);
+            //    item.transform.Rotate(v3_rotation, Space.Self);
+            //}
 
-            if (Input.GetKey(KeyCode.Alpha2))
-            {
-                //hit.transform.localEulerAngles = new Vector3()
-                v3_rotation = new Vector3(-1, 0, 0);
-                item.transform.Rotate(v3_rotation, Space.Self);
-            }
-            else if (Input.GetKey(KeyCode.Alpha4))
-            {
-                //hit.transform.localEulerAngles = new Vector3()
-                v3_rotation = new Vector3(0, -1, 0);
-                item.transform.Rotate(v3_rotation, Space.Self);
-            }
-            else if (Input.GetKey(KeyCode.Alpha6))
-            {
-                //hit.transform.localEulerAngles = new Vector3()
-                v3_rotation = new Vector3(0, 0, -1);
-                item.transform.Rotate(v3_rotation, Space.Self);
-            }
+            //if (Input.GetKey(KeyCode.Alpha2))
+            //{
+            //    //hit.transform.localEulerAngles = new Vector3()
+            //    v3_rotation = new Vector3(-1, 0, 0);
+            //    item.transform.Rotate(v3_rotation, Space.Self);
+            //}
+            //else if (Input.GetKey(KeyCode.Alpha4))
+            //{
+            //    //hit.transform.localEulerAngles = new Vector3()
+            //    v3_rotation = new Vector3(0, -1, 0);
+            //    item.transform.Rotate(v3_rotation, Space.Self);
+            //}
+            //else if (Input.GetKey(KeyCode.Alpha6))
+            //{
+            //    //hit.transform.localEulerAngles = new Vector3()
+            //    v3_rotation = new Vector3(0, 0, -1);
+            //    item.transform.Rotate(v3_rotation, Space.Self);
+            //}
         }
         else
         {
