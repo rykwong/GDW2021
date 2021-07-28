@@ -47,10 +47,10 @@ public class DisappearingBlocks : MonoBehaviour
                 pf = Instantiate(block, new Vector3(this.transform.position.x - i * offSet, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 pf.transform.localScale = new Vector3(blockSize, 0.125f, blockSize);
 
-                Destroy(pf, 6f);
-                yield return new WaitForSeconds(1f);
+                Destroy(pf, 5f);
+                yield return new WaitForSeconds(2f);
 
-                if (i == 4)
+                if (i == blockCount-1)
                 {
                     StartCoroutine(spawnBlocks(blockCount));
                 }
@@ -63,7 +63,7 @@ public class DisappearingBlocks : MonoBehaviour
                 Destroy(pf, 5f);
                 yield return new WaitForSeconds(2f);
 
-                if (i == 4)
+                if (i == blockCount -1)
                 {
                     StartCoroutine(spawnBlocks(blockCount));
                 }
