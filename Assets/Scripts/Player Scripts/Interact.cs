@@ -13,7 +13,7 @@ public class Interact : MonoBehaviour
     [SerializeField] private GameObject sign;
     public float pushPower = 100.0f;
 
-    PickUp p = new PickUp();
+
 
 
     private void Start()
@@ -53,11 +53,10 @@ public class Interact : MonoBehaviour
             }
             else if (hitObject.CompareTag("Pickable"))
             {
-                popup.SetText("Press E To Pickup");
-                if (p.grabbed == true)
-                {
-                    popup.SetText("Press Right Mouse Button To Drop");
-                }
+
+                popup.SetText("Press Mouse Left Button To Pick Up");
+
+
             }
 
             else
@@ -65,6 +64,7 @@ public class Interact : MonoBehaviour
                 popup.SetText("");
                 sign.SetActive(false);
             }
+
 
         }
         else

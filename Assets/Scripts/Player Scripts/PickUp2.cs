@@ -10,21 +10,30 @@ public class PickUp2 : MonoBehaviour
 
     public bool canHold = true;
     public GameObject item;
-    public GameObject tempParent;
+    GameObject tempParent;
     public bool isHolding = false;
+    Vector3 v3_rotation;
 
     // Update is called once per frame
+    void Awake()
+    {
+        //Debug.Log("Hand Position:" + GameObject.Find("Camera/Hand_Position"));
+        tempParent = GameObject.Find("Camera/Hand_Position");
+
+
+    }
     void Update()
     {
 
-        distance = Vector3.Distance(item.transform.position, tempParent.transform.position);    
+        distance = Vector3.Distance(item.transform.position, tempParent.transform.position);
         if (distance >= 1f)
         {
-            isHolding = false;  
+            isHolding = false;
         }
         //Check if isholding
         if (isHolding == true)
         {
+           
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.SetParent(tempParent.transform);
@@ -33,6 +42,45 @@ public class PickUp2 : MonoBehaviour
             {
                 item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
                 isHolding = false;
+            }
+
+            //rotate a picked up object
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                //hit.transform.localEulerAngles = new Vector3()
+                v3_rotation = new Vector3(1, 0, 0);
+                item.transform.Rotate(v3_rotation, Space.Self);
+            }
+            else if (Input.GetKey(KeyCode.Alpha3))
+            {
+                //hit.transform.localEulerAngles = new Vector3()
+                v3_rotation = new Vector3(0, 1, 0);
+                item.transform.Rotate(v3_rotation, Space.Self);
+            }
+            else if (Input.GetKey(KeyCode.Alpha5))
+            {
+                //hit.transform.localEulerAngles = new Vector3()
+                v3_rotation = new Vector3(0, 0, 1);
+                item.transform.Rotate(v3_rotation, Space.Self);
+            }
+
+            if (Input.GetKey(KeyCode.Alpha2))
+            {
+                //hit.transform.localEulerAngles = new Vector3()
+                v3_rotation = new Vector3(-1, 0, 0);
+                item.transform.Rotate(v3_rotation, Space.Self);
+            }
+            else if (Input.GetKey(KeyCode.Alpha4))
+            {
+                //hit.transform.localEulerAngles = new Vector3()
+                v3_rotation = new Vector3(0, -1, 0);
+                item.transform.Rotate(v3_rotation, Space.Self);
+            }
+            else if (Input.GetKey(KeyCode.Alpha6))
+            {
+                //hit.transform.localEulerAngles = new Vector3()
+                v3_rotation = new Vector3(0, 0, -1);
+                item.transform.Rotate(v3_rotation, Space.Self);
             }
         }
         else
