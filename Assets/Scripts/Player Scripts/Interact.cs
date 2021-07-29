@@ -54,7 +54,7 @@ public class Interact : MonoBehaviour
             else if (hitObject.CompareTag("Pickable"))
             {
 
-                popup.SetText("Press Mouse Left Button To Pick Up");
+                popup.SetText("Hold Left Mouse Button To Pick Up");
 
 
             }

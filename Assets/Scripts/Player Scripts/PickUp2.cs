@@ -12,7 +12,8 @@ public class PickUp2 : MonoBehaviour
     public GameObject item;
     GameObject tempParent;
     public bool isHolding = false;
-                Vector3 v3_rotation;
+  
+    Vector3 v3_rotation;
 
     // Update is called once per frame
     void Awake()
@@ -26,14 +27,14 @@ public class PickUp2 : MonoBehaviour
     {
 
         distance = Vector3.Distance(item.transform.position, tempParent.transform.position);
-        if (distance >= 1f)
+        if (distance >= 2.0f)
         {
             isHolding = false;
         }
         //Check if isholding
         if (isHolding == true)
         {
-           
+
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.SetParent(tempParent.transform);
@@ -94,7 +95,7 @@ public class PickUp2 : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (distance <= 1f)
+        if (distance <= 2.0f)
         {
             isHolding = true;
             item.GetComponent<Rigidbody>().useGravity = false;
