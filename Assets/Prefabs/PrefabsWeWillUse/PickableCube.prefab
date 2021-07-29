@@ -111,7 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canHold: 1
   item: {fileID: 900650229438437518}
-  tempParent: {fileID: 4653333516755668140, guid: 0dd40413f7439f941a80ed6adc309e62, type: 3}
   isHolding: 0
 --- !u!54 &900650229438437512
 Rigidbody:
