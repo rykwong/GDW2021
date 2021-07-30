@@ -12,7 +12,7 @@ public class PickUp2 : MonoBehaviour
     public GameObject item;
     GameObject tempParent;
     public bool isHolding = false;
-  
+
     Vector3 v3_rotation;
 
     // Update is called once per frame
