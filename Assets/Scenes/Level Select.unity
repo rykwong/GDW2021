@@ -274,6 +274,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Heaven (Interior)
       objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933024, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Name
       value: SceneButton (3)
@@ -360,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49.999985
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -391,6 +399,14 @@ PrefabInstance:
     - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Text
       value: Heaven (Exterior)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933024, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Name
@@ -478,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -611,6 +627,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Heaven (Upstairs)
       objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933024, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Name
       value: SceneButton (4)
@@ -697,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.999985
+      value: -175
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -809,6 +833,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Puzzle Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933024, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Name
       value: SceneButton (5)
@@ -895,7 +927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -149.99998
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -954,7 +986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2133213747
@@ -1032,7 +1064,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Text
-      value: Platforming Levels
+      value: Platforming Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933024, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Name
@@ -1048,7 +1088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933030, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Platform
+      value: Platform2
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Pivot.x
@@ -1151,6 +1191,14 @@ PrefabInstance:
     - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Text
       value: Limbo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633824296566535287, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933024, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_Name
@@ -1278,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 7633824297687933031, guid: e18e6493b9f4e49cea0c1b781791ddb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

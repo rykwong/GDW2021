@@ -7,6 +7,8 @@ public class SceneTransition : MonoBehaviour
 {
     public void Transition(string scene)
     {
+        PauseMenu.gameIsPaused = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
@@ -18,9 +20,13 @@ public class SceneTransition : MonoBehaviour
         {
             scene = "Limbo";
         }
-        else if (sceneSelect == "Platform")
+        else if (sceneSelect == "Platform1")
         {
             scene = "Thomas2";
+        }
+        else if (sceneSelect == "Platform2")
+        {
+            scene = "EasyLevel";
         }
         else if (sceneSelect == "Heaven1")
         {
