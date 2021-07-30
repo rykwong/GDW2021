@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     //jump
     [Header("Jump Variables")]
     public float jumpHeight = 3f;
-    
+
     [Header("Physics Variables")]
     //physics
     private Vector3 velocity;

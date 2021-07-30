@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    float throwForce = 600;
     Transform currentTransform;
     float distanceBetween;
     RaycastHit hit;
@@ -43,9 +43,18 @@ public class PickUp : MonoBehaviour
                 {
                     Debug.Log(hit.transform.gameObject);
                     SetNewTransform(hit.transform);
-                    hit.transform.parent = handPosition.transform;
-                    grabbed = true;
 
+                    hit.transform.GetComponent<Rigidbody>().useGravity = false;
+                    hit.transform.GetComponent<Rigidbody>().detectCollisions = true;
+
+                    grabbed = true;
+                    if (grabbed)
+                    {
+
+                        hit.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        hit.transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                        hit.transform.parent = handPosition.transform;
+                    }
                     //float x = hit.transform.localRotation.x;
                     //float y = hit.transform.localRotation.y;
                     //float z = hit.transform.localRotation.z;
@@ -65,21 +74,21 @@ public class PickUp : MonoBehaviour
                     //    hit.transform.eulerAngles = new Vector3(x, y, z++);
                     //}
                 }
-                else
-                {
-                    grabbed = false;
-                }
+
 
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             RemoveTransform();
             if (grabbed)
             {
                 hit.transform.parent = null;
+                hit.transform.GetComponent<Rigidbody>().useGravity = true;
+
             }
+
             grabbed = false;
             //if (hit.transform.gameObject.GetComponent<Transform>().parent != null)
             //{
@@ -98,43 +107,43 @@ public class PickUp : MonoBehaviour
         }
 
         //rotate a picked up object
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            //hit.transform.localEulerAngles = new Vector3()
-            v3_rotation = new Vector3(1, 0, 0);
-            hit.transform.Rotate(v3_rotation * 2, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.Alpha3))
-        {
-            //hit.transform.localEulerAngles = new Vector3()
-            v3_rotation = new Vector3(0, 1, 0);
-            hit.transform.Rotate(v3_rotation * 2, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.Alpha5))
-        {
-            //hit.transform.localEulerAngles = new Vector3()
-            v3_rotation = new Vector3(0, 0, 1);
-            hit.transform.Rotate(v3_rotation * 2, Space.Self);
-        }
+        //if (Input.GetKey(KeyCode.Alpha1))
+        //{
+        //    //hit.transform.localEulerAngles = new Vector3()
+        //    v3_rotation = new Vector3(1, 0, 0);
+        //    hit.transform.Rotate(v3_rotation * 2, Space.Self);
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha3))
+        //{
+        //    //hit.transform.localEulerAngles = new Vector3()
+        //    v3_rotation = new Vector3(0, 1, 0);
+        //    hit.transform.Rotate(v3_rotation * 2, Space.Self);
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha5))
+        //{
+        //    //hit.transform.localEulerAngles = new Vector3()
+        //    v3_rotation = new Vector3(0, 0, 1);
+        //    hit.transform.Rotate(v3_rotation * 2, Space.Self);
+        //}
 
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            //hit.transform.localEulerAngles = new Vector3()
-            v3_rotation = new Vector3(-1, 0, 0);
-            hit.transform.Rotate(v3_rotation * 2, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.Alpha4))
-        {
-            //hit.transform.localEulerAngles = new Vector3()
-            v3_rotation = new Vector3(0, -1, 0);
-            hit.transform.Rotate(v3_rotation * 2, Space.Self);
-        }
-        else if (Input.GetKey(KeyCode.Alpha6))
-        {
-            //hit.transform.localEulerAngles = new Vector3()
-            v3_rotation = new Vector3(0, 0, -1);
-            hit.transform.Rotate(v3_rotation * 2, Space.Self);
-        }
+        //if (Input.GetKey(KeyCode.Alpha2))
+        //{
+        //    //hit.transform.localEulerAngles = new Vector3()
+        //    v3_rotation = new Vector3(-1, 0, 0);
+        //    hit.transform.Rotate(v3_rotation * 2, Space.Self);
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha4))
+        //{
+        //    //hit.transform.localEulerAngles = new Vector3()
+        //    v3_rotation = new Vector3(0, -1, 0);
+        //    hit.transform.Rotate(v3_rotation * 2, Space.Self);
+        //}
+        //else if (Input.GetKey(KeyCode.Alpha6))
+        //{
+        //    //hit.transform.localEulerAngles = new Vector3()
+        //    v3_rotation = new Vector3(0, 0, -1);
+        //    hit.transform.Rotate(v3_rotation * 2, Space.Self);
+        //}
 
         //if there is a current transform, we want to move the transform around.
         if (currentTransform)
@@ -156,7 +165,7 @@ public class PickUp : MonoBehaviour
         currentTransform = newTransform;
         distanceBetween = Vector3.Distance(handPosition.position, currentTransform.position);
 
-        currentTransform.GetComponent<Rigidbody>().isKinematic = true;
+        //currentTransform.GetComponent<Rigidbody>().isKinematic = true;
     }
     //move around while holding the object
     private void MoveTransformAround()
@@ -170,7 +179,7 @@ public class PickUp : MonoBehaviour
         {
             return;
         }
-        currentTransform.GetComponent<Rigidbody>().isKinematic = false;
+        //currentTransform.GetComponent<Rigidbody>().isKinematic = false;
         currentTransform = null;
     }
 
