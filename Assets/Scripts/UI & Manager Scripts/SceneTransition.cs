@@ -26,7 +26,7 @@ public class SceneTransition : MonoBehaviour
         }
         else if (sceneSelect == "Platform2")
         {
-            scene = "EasyLevel";
+            scene = "NewEasyLevel";
         }
         else if (sceneSelect == "Heaven1")
         {
@@ -47,7 +47,11 @@ public class SceneTransition : MonoBehaviour
         {
             scene = "Koshi";
         }
-
+        else if (sceneSelect == "Puzzle2")
+        {
+            scene = "Ryan_Level";
+        }
+        
         if (pos != Vector3.zero)
         {
             PlayerPrefs.SetFloat("X", pos.x);
