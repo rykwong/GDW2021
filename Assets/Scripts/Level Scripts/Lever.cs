@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour, IInteractable
 {
-    [SerializeField] private List<GameObject> targets = new List<GameObject>();
+    [SerializeField] private GameObject target;
     public void Interact()
     {
         GetComponent<MeshRenderer>().material.color = Color.green;
-        for (int i = 0; i < targets.Count; i++)
-        {
-            targets[i].GetComponent<ITriggerable>().Trigger();
-        }
+        target.GetComponent<ITriggerable>().Trigger();
         tag = "Untagged";
     }
 }

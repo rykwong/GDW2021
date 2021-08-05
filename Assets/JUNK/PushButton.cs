@@ -9,7 +9,7 @@ public class PushButton : MonoBehaviour, IInteractable
     public void Interact()
     {
         //target[index].GetComponent<ITriggerable>().Trigger();
-        for (int i = 0; i < target.Capacity; i++)
+        for(int i = 0; i < target.Capacity; i++)
         {
             target[i].GetComponent<ITriggerable>().Trigger();
         }
