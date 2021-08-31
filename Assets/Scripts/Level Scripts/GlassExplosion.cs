@@ -87,7 +87,7 @@ public class GlassExplosion : MonoBehaviour, ITriggerable
         //why?
         piece.AddComponent<Rigidbody>();
         piece.GetComponent<Rigidbody>().mass = cubeSize;
-        piece.GetComponent<Renderer>().material.color = Color.red;
+        piece.GetComponent<Renderer>().material.color = Color.black;
 
         if (destroy)
         {
