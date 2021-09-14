@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Select.unity
     guid: 6d902fa45263d4c5b820f77c17706ebb
   - enabled: 1
-    path: Assets/Scenes/Ryan_Level.unity
+    path: Assets/Scenes/Levels/Ryan_Level.unity
     guid: 11bf7e6c72e204612a1b85163aefc5ed
   - enabled: 1
     path: Assets/Scenes/Koshi.unity

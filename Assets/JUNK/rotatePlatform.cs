@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotatePlatform : MonoBehaviour, ITriggerable
+public class rotatePlatform : MonoBehaviour
 {
-    float xRotation = 0.0f;
+    float yRotation = 0.0f;
     void Start()
     {
 
@@ -13,12 +13,9 @@ public class rotatePlatform : MonoBehaviour, ITriggerable
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(new Vector3(0f,  100f, 0f) * Time.deltaTime);
+    }
 
-    }
-    public void Trigger()
-    {
-        this.transform.rotation = Quaternion.Euler(xRotation += 15.0f, 0.0f, 0.0f);
-    }
 
 
 }

@@ -8,7 +8,7 @@ public class HiddenPuzzleManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] tiles;
     [SerializeField] private GameObject[] answerTiles;
-
+    //2d array of possible answers
     private bool[][] possibleAnswers = new[]
     {
         new[] {
@@ -18,7 +18,7 @@ public class HiddenPuzzleManager : MonoBehaviour
             false,false,true,false,false,
             false,false,true,false,false},
         new[] {
-            true,false,false,false,false, 
+            true,false,false,false,false,
             true,true,false,false,false,
             false,true,false,false,false,
             false,true,false,false,false,
@@ -30,19 +30,19 @@ public class HiddenPuzzleManager : MonoBehaviour
             false,false,false,true,true,
             false,false,false,false,true},
         new[] {
-            false,false,false,true,false, 
+            false,false,false,true,false,
             false,false,false,true,true,
             false,false,false,false,true,
             false,false,true,true,true,
             false,false,true,false,false},
         new[] {
-            true,false,false,false,false, 
+            true,false,false,false,false,
             false,true,false,false,false,
             false,false,true,false,false,
             false,false,false,true,false,
             false,false,false,false,true},
         new[] {
-            false,true,false,true,false, 
+            false,true,false,true,false,
             true,false,true,false,true,
             false,true,false,true,false,
             true,false,true,false,true,
@@ -54,10 +54,17 @@ public class HiddenPuzzleManager : MonoBehaviour
         GeneratePuzzle();
     }
 
+    //create puzzles
+    /*
+     * look through possible answers:
+     *      if wrong:
+     *              it has no ground layer
+     */
+
     public void GeneratePuzzle()
     {
         bool[] answers = possibleAnswers[Random.Range(0, possibleAnswers.Length)];
-        for(int i = 0; i < answers.Length; i ++)
+        for (int i = 0; i < answers.Length; i++)
         {
             MeshCollider tile = tiles[i].GetComponent<MeshCollider>();
             MeshRenderer answer = answerTiles[i].GetComponent<MeshRenderer>();
