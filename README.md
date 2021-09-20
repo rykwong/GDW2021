@@ -2,7 +2,7 @@
 ## Table Of Contents
 
 1. [Overview](#Overview)
-2. [Demo] (#Demo)
+2. [Demo](#Demo)
 
 Authors: Ryan Kwong, Thomas Lao, Koshi Huynh
 
