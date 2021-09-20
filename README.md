@@ -1,39 +1,21 @@
 # GDW2021
 ## Table Of Contents
 1. [Overview](#Overview)
-2. [Game_Specs](#Game-Spec)
-3. [Wireframes](#Wireframes)
-4. [Gifs](#Gifs)
-5. 
+2. [Demo] (#Demo)
+
+Authors: Ryan Kwong, Thomas Lao, Koshi Huynh
+
 ## Overview
 ### Description
 
-**Insert Game Name**
+Hermes
 
-nothing here yet
-
-**GDW2021** 
-
-nothing here yet. don't have a solid game idea. 
+You play as Hermes, an infamous magical artifact hunter who is attempting to sneak into heaven and steal God's treasure. 
+Make your way through dangerous puzzles and various terrains as you face the obstacles guarding the vault. 
+Can you live up to your namesake, the god of thieves, or will your greed be your ultimate downfall?  
 
 ### Demo
 
-nothing here yet
-
-## Game Specs
- 
-### 1. Game features (Required and Optional) 
-
-**Required Must-have Stories** 
- 
- nothing here yet
-
-**Optional Stretch Goals**
-
-  nothing here yet
-
-## Gifs
-
-  nothing here yet
+https://rykwong.itch.io/hermes
 
 
